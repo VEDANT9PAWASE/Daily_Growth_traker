@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # THIS LINE BELOW IS THE KEY:
+      
         'DIRS': [BASE_DIR / 'templates'], 
         'APP_DIRS': True,
         'OPTIONS': {
