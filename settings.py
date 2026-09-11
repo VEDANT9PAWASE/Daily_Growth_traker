@@ -20,7 +20,7 @@ LOGOUT_REDIRECT_URL = 'login'
 
 
 
-# SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'django-insecure-8ksqxyzz4e^qw1ol@qd&@j)d5#%9brmdeo)81wmx%j0gl@id+d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
