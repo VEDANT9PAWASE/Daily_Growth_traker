@@ -1,25 +1,13 @@
-"""
-URL configuration for growth_tracker project.
+from django.urls import path
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path , include
-from django.views.generic.base import TemplateView
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')), # Built-in login/logout/password logic
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', views.dashboard, name='dashboard'),
+    path('habits/new/', views.HabitCreateView.as_view(), name='habit_create'),
+    path('habits/<int:pk>/edit/', views.HabitUpdateView.as_view(), name='habit_update'),
+    path('habits/<int:pk>/delete/', views.HabitDeleteView.as_view(), name='habit_delete'),
+    path('habits/<int:pk>/toggle-today/', views.toggle_today, name='toggle_today'),
+    path('habits/<int:pk>/progress-note/', views.progress_note, name='progress_note'),
+    path('reflection/today/', views.reflection_today, name='reflection_today'),
 ]
